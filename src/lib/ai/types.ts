@@ -1,7 +1,7 @@
 // AI Gateway — domain port + types. Provider-agnostic LLM contract.
 // Structured so this whole folder lifts into a NestJS `ai-gateway` module unchanged.
 
-export type ProviderName = 'openai' | 'anthropic' | 'gemini' | 'groq' | 'ollama' | 'nvidia'
+export type ProviderName = 'openai' | 'anthropic' | 'gemini' | 'groq' | 'ollama' | 'nvidia' | 'veixon'
 
 export interface ChatMessage {
   role: 'system' | 'user' | 'assistant'

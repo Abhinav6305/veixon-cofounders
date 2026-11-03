@@ -10,11 +10,13 @@ function envChain(name: string, fallback: ProviderName[]): ProviderName[] {
   if (!v) return fallback
   return v.split(',').map((s) => s.trim()).filter(Boolean) as ProviderName[]
 }
-const PRIMARY = (process.env.AI_PRIMARY_PROVIDER as ProviderName) || 'nvidia'
+// When VEIXON AI OS is connected it is the primary provider (set AI_PRIMARY_PROVIDER to override);
+// the hosted providers stay in the chain as fallbacks, so the app keeps working if AI OS is down.
+const PRIMARY = (process.env.AI_PRIMARY_PROVIDER as ProviderName) || (process.env.VEIXON_AIOS_URL && process.env.VEIXON_AIOS_API_KEY ? 'veixon' : 'nvidia')
 const CHAINS: Record<Tier, ProviderName[]> = {
-  default: envChain('AI_CHAIN_DEFAULT', [PRIMARY, 'openai', 'groq', 'gemini', 'anthropic']),
-  fast: envChain('AI_CHAIN_FAST', ['groq', PRIMARY, 'openai', 'gemini']),
-  strong: envChain('AI_CHAIN_STRONG', ['anthropic', 'openai', PRIMARY, 'gemini']),
+  default: envChain('AI_CHAIN_DEFAULT', [PRIMARY, 'nvidia', 'openai', 'groq', 'gemini', 'anthropic']),
+  fast: envChain('AI_CHAIN_FAST', ['groq', PRIMARY, 'nvidia', 'openai', 'gemini']),
+  strong: envChain('AI_CHAIN_STRONG', ['anthropic', 'openai', PRIMARY, 'nvidia', 'gemini']),
 }
 
 // ---- per-provider circuit breaker (in-memory; moves to Redis in the events phase) ----
@@ -42,7 +44,7 @@ export function setUsageSink(fn: (e: UsageEvent) => void) { usageSink = fn }
 const PRICES: Partial<Record<ProviderName, { in: number; out: number }>> = {
   openai: { in: 0.00015, out: 0.0006 }, anthropic: { in: 0.003, out: 0.015 },
   gemini: { in: 0.000075, out: 0.0003 }, groq: { in: 0.00005, out: 0.00008 },
-  nvidia: { in: 0, out: 0 }, ollama: { in: 0, out: 0 },
+  nvidia: { in: 0, out: 0 }, ollama: { in: 0, out: 0 }, veixon: { in: 0, out: 0 },
 }
 function record(r: ChatResult, userId?: string) {
   const p = PRICES[r.provider]
