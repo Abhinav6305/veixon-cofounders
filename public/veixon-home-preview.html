@@ -190,6 +190,22 @@
   .spark::after{width:1px;height:var(--flare,46px);background:linear-gradient(180deg,transparent,rgba(255,255,255,.85),transparent)}
   @keyframes tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
   body.light .spark{display:none}
+
+  /* ---- full-screen title ---- */
+  .hero{min-height:100svh;height:100svh;padding:84px clamp(14px,2.2vw,32px) 20px;display:flex;flex-direction:column;justify-content:stretch;align-items:stretch;text-align:left}
+  h1.fitTitle{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;max-width:none;width:100%;margin:0;line-height:.84;letter-spacing:-.05em;text-transform:uppercase;font-weight:900}
+  h1.fitTitle .fl{display:block;width:max-content;max-width:none;white-space:nowrap;font-size:120px}
+  h1.fitTitle .fl:nth-child(even){margin-left:auto}
+  .scrollcue{align-self:center;margin-top:10px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;text-decoration:none}
+  /* ---- below the fold: everything in containers ---- */
+  .sec{padding:28px 0}
+  .boxed .wrap{max-width:1180px}
+  .box{position:relative;border:1px solid var(--border);background:color-mix(in srgb,var(--bg) 62%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:24px;padding:clamp(26px,5vw,64px)}
+  .box.center{text-align:center}
+  .boxed .stats{margin-top:0}
+  .cta.boxed{min-height:auto;padding:28px 0 56px}
+  @media(max-width:900px){nav .links a:not(.btn){display:none}}
+  .manifesto .box{padding:clamp(40px,7vw,90px) clamp(24px,5vw,64px)}
 </style>
 </head>
 <body>
@@ -219,29 +235,37 @@
 
 <div id="smooth">
 <section class="hero" id="top">
-  <div class="badge"><span class="dot"></span> Powered by VEIXON.Tech</div>
-  <h1><span id="l1"></span><br><span class="g" id="l2"></span></h1>
-  <p class="sub">Brutal scorecard. 90-day war plan. Devil&rsquo;s advocate. Decision simulator. Weekly accountability.</p>
-  <div class="console">
-    <input id="ideaIn" placeholder="Describe your startup in one line…"/>
-    <span class="magnetic"><button class="btn primary" id="analyzeBtn">Get my brutal analysis →</button></span>
-  </div>
-  <p class="micro" id="consoleHint">Instant, free, no signup. VZN doesn&rsquo;t sugarcoat.</p>
-  <div id="teaser"></div>
+  <h1 class="fitTitle" aria-label="Your AI Co-Founder from Day One.">
+    
+  </h1>
+  <a class="scrollcue" href="#start">Scroll ↓</a>
 </section>
+
+<section class="sec boxed" id="start"><div class="wrap">
+  <div class="box center">
+    <div class="badge"><span class="dot"></span> Powered by VEIXON.Tech</div>
+    <p class="sub" style="margin-top:0">Brutal scorecard. 90-day war plan. Devil&rsquo;s advocate. Decision simulator. Weekly accountability.</p>
+    <div class="console">
+      <input id="ideaIn" placeholder="Describe your startup in one line…"/>
+      <span class="magnetic"><button class="btn primary" id="analyzeBtn">Get my brutal analysis →</button></span>
+    </div>
+    <p class="micro" id="consoleHint">Instant, free, no signup. VZN doesn&rsquo;t sugarcoat.</p>
+    <div id="teaser"></div>
+  </div>
+</div></section>
 
 <div class="marquee"><div class="track" id="mtrack"></div></div>
 
-<section class="sec"><div class="wrap">
+<section class="sec boxed"><div class="wrap"><div class="box">
   <div class="stats">
     <div class="stat reveal"><div class="n" data-count="90">0</div><div class="l">Days of execution</div></div>
     <div class="stat reveal"><div class="n" data-count="13">0</div><div class="l">Weekly missions</div></div>
     <div class="stat reveal"><div class="n" data-count="6">0</div><div class="l">Scorecard dimensions</div></div>
     <div class="stat reveal"><div class="n" data-count="20">0</div><div class="l">VCs in the vault</div></div>
   </div>
-</div></section>
+</div></div></section>
 
-<section class="sec" id="how"><div class="wrap">
+<section class="sec boxed" id="how"><div class="wrap"><div class="box">
   <div class="center reveal"><div class="eyebrow">The flow</div><h2 style="margin-top:14px">From idea to execution in 4 moves</h2><p class="lead" style="margin-left:auto;margin-right:auto">VEIXON guides you from raw idea to funded startup — no fluff.</p></div>
   <div class="grid g4">
     <div class="card reveal"><div class="spot"></div><div class="num">01</div><h3>Share your idea</h3><p>Three precise questions. No pitch deck.</p></div>
@@ -249,13 +273,13 @@
     <div class="card reveal"><div class="spot"></div><div class="num">03</div><h3>Get your 90-day war plan</h3><p>Thirteen weekly missions, each with daily execution tasks.</p></div>
     <div class="card reveal"><div class="spot"></div><div class="num">04</div><h3>Ship and stay accountable</h3><p>Weekly check-ins, pivot radar, and execution pressure.</p></div>
   </div>
-</div></section>
+</div></div></section>
 
-<section class="sec manifesto"><div class="wrap center">
+<section class="sec boxed manifesto"><div class="wrap center"><div class="box">
   <h2 class="reveal"><span class="hl">Most startups die of comfort.</span> <span class="dm">VEIXON is the co-founder that refuses to let you lie to yourself — brutally honest, always watching, impossible to impress with vanity.</span></h2>
-</div></section>
+</div></div></section>
 
-<section class="sec" id="features"><div class="wrap">
+<section class="sec boxed" id="features"><div class="wrap"><div class="box">
   <div class="center reveal"><h2>Built for founders who hate fluff.</h2><p class="lead" style="margin-left:auto;margin-right:auto">Everything your co-founder should be.</p></div>
   <div class="grid g2">
     <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(250,204,21,0.14), rgba(250,204,21,0.02)); --ic-border: rgba(250,204,21,0.3); --ic-glow: rgba(250,204,21,0.22);">💡</span><h3>AI Ideation Engine</h3><p>6-dimension scorecard, devil&rsquo;s advocate, failure probability, Founder DNA profile.</p></div>
@@ -263,9 +287,9 @@
     <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(99,102,241,0.02)); --ic-border: rgba(99,102,241,0.3); --ic-glow: rgba(99,102,241,0.22);">📡</span><h3>Pivot Radar</h3><p>VEIXON watches weekly patterns and alerts you before you realise you are failing.</p></div>
     <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(239,68,68,0.14), rgba(239,68,68,0.02)); --ic-border: rgba(239,68,68,0.3); --ic-glow: rgba(239,68,68,0.22);">🎯</span><h3>Accountability Score</h3><p>Your follow-through rate. Tracked every week. The number VCs will ask to see.</p></div>
   </div>
-</div></section>
+</div></div></section>
 
-<section class="sec" id="proof"><div class="wrap">
+<section class="sec boxed" id="proof"><div class="wrap"><div class="box">
   <h2 class="center reveal">See what VEIXON sees in your idea.</h2>
   <div class="two">
     <div class="scorecard reveal card">
@@ -280,15 +304,15 @@
       <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">War plan</div><h3>Every mission is falsifiable.</h3><p>Tasks are written so you can either complete them or admit you dodged them.</p></div>
     </div>
   </div>
-</div></section>
+</div></div></section>
 
-<section class="cta"><div class="wrap center">
+<section class="cta boxed"><div class="wrap center"><div class="box">
   <div class="reveal"><div class="avatar"></div>
     <h2>Stop guessing.<br><span class="g" style="background:linear-gradient(110deg,var(--txt),var(--muted));-webkit-background-clip:text;background-clip:text;color:transparent">Start shipping.</span></h2>
     <div class="pills" style="margin-top:36px"><span class="magnetic"><a class="btn primary" href="#top" style="padding:16px 34px;font-size:17px">Analyse my idea — free</a></span></div>
     <p class="micro">No credit card · 1 free analysis · Built in India</p>
   </div>
-</div></section>
+</div></div></section>
 
 <footer>Copyright 2026 VEIXON Co-founders — Decide Smarter. Move Faster.</footer>
 </div><!-- /smooth -->
@@ -333,7 +357,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 /* ---------- char reveal ---------- */
 function split(el,text,base){[...text].forEach((ch,i)=>{const s=document.createElement('span');s.className='char';s.textContent=ch===' '?'\u00A0':ch;el.appendChild(s);setTimeout(()=>{s.style.transition='opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)';s.style.opacity=1;s.style.transform='none';},base+i*32);});}
-setTimeout(()=>{split(document.getElementById('l1'),'Your AI Co-Founder',2500);split(document.getElementById('l2'),'from Day One.',2500+18*32);},0);
+const LAYOUTS=[['Your AI Co-Founder','from Day One.'],['Your AI','Co-Founder','from Day One.'],['Your AI','Co-Founder','from','Day One.'],['Your','AI Co-','Founder','from','Day One.'],['Your','AI','Co-','Founder','from','Day','One.']];
+let titleAnimated=false,curKey='';
+function fillLine(sp,t,animate,base){if(animate){split(sp,t,base);return;}
+  [...t].forEach(ch=>{const c=document.createElement('span');c.className='char';c.style.opacity=1;c.style.transform='none';c.textContent=ch===' '?' ':ch;sp.appendChild(c);});}
+function measure(lines){const h1=document.querySelector('h1.fitTitle');const W=h1.clientWidth,H=h1.clientHeight;
+  const m=h1.cloneNode(false);m.removeAttribute('aria-label');m.style.cssText='position:absolute;visibility:hidden;left:0;top:0;width:'+W+'px;height:auto;flex:none;overflow:visible';
+  h1.parentNode.appendChild(m);
+  const els=lines.map((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');fillLine(sp,t,false);sp.style.fontSize='100px';m.appendChild(sp);return sp;});
+  const sizes=els.map(l=>96*W/l.scrollWidth);els.forEach((l,i)=>l.style.fontSize=sizes[i]+'px');
+  const total=els.reduce((a,l)=>a+l.offsetHeight,0);m.remove();
+  return {lines,sizes,k:Math.min(1,H/total),fill:Math.min(total,H)/H};}
+function fitTitle(){const h1=document.querySelector('h1.fitTitle');if(!h1||!h1.clientHeight)return;
+  const opts=LAYOUTS.map(measure);opts.sort((x,y)=>(y.k===1)-(x.k===1)||(x.k===1?y.fill-x.fill:y.k-x.k));
+  const best=opts[0],key=best.lines.join('|');
+  if(key!==curKey){h1.innerHTML='';best.lines.forEach((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');h1.appendChild(sp);fillLine(sp,t,!titleAnimated,2500+i*260);});curKey=key;titleAnimated=true;}
+  [...h1.children].forEach((l,i)=>l.style.fontSize=(best.sizes[i]*best.k)+'px');
+  if(typeof setHeight==='function')setHeight();}
+fitTitle();addEventListener('load',fitTitle);setTimeout(()=>{document.querySelector('.hero').classList.add('in');},2500);let rT;addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(fitTitle,120);});
 
 /* ---------- marquee ---------- */
 (function(){const items=['Brutal scorecard','90-day war plan','Devil’s advocate','Decision simulator','Pivot radar','Founder DNA','VC vault','Accountability score'];const html=items.map(i=>'<span>'+i+' <b>/</b></span>').join('');document.getElementById('mtrack').innerHTML=html+html;})();

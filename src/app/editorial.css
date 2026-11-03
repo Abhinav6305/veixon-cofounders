@@ -1,0 +1,154 @@
+/* =====================================================================
+   VEIXON EDITORIAL THEME — every page except the landing page
+   Structure from Afterimage (square corners, heavy rules, grotesk caps,
+   mono labels, tactile buttons); colours stay the VEIXON palette.
+   The landing page lives in its own document (/veixon-home-preview.html),
+   so nothing here reaches it.
+   ===================================================================== */
+/* fonts are bundled via @fontsource (see layout.tsx) */
+
+:root {
+  --font-display: 'Space Grotesk', 'Arial Black', Arial, sans-serif;
+  --font-inter: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --rule: color-mix(in srgb, var(--text-primary) 82%, transparent);   /* the "ink" line */
+  --rule-soft: color-mix(in srgb, var(--text-primary) 22%, transparent);
+  --border: color-mix(in srgb, var(--text-primary) 26%, var(--bg-primary));
+  --border-strong: var(--rule);
+  --card-bg: var(--bg-secondary);
+  --card-solid: var(--bg-secondary);
+  --radius: 0px;
+  --hard-shadow: 4px 4px 0 0 var(--rule);
+}
+
+body { font-family: var(--font-inter); letter-spacing: -0.005em; }
+
+/* ---------- 1. square everything (keep true circles: dots, avatars) ---------- */
+body *:not(.rounded-full):not([style*="50%"]):not([style*="999"]):not(svg):not(svg *) {
+  border-radius: 0 !important;
+}
+
+/* ---------- 2. no glass, no glow: flat paper-like surfaces ---------- */
+body * {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.vzn-orb, .veixon-spark, .veixon-tilt-glow, .vzn-shell-header::after,
+.vzn-panel::before, .vzn-panel-strong::before, .vzn-route-stage::before { display: none !important; }
+
+.vzn-app-shell { background: var(--bg-primary) !important; }
+
+/* ---------- 3. headline type: Space Grotesk, heavy, uppercase ---------- */
+h1, h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: -0.035em !important;
+  line-height: 0.98 !important;
+}
+h3, h4 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* labels, eyebrows, numbers: IBM Plex Mono */
+.font-mono, code, kbd, .vzn-section-label, .vzn-status-pill, label,
+th, [class*="tracking-["], [class*="tracking-wide"], [class*="tracking-widest"], .uppercase {
+  font-family: var(--font-mono) !important;
+}
+.vzn-section-label { color: var(--purple-light); letter-spacing: .08em; }
+.vzn-section-label::before {
+  content: ''; display: inline-block; width: .5rem; height: .5rem;
+  margin-right: .55rem; background: var(--red); vertical-align: .05em;
+}
+
+/* ---------- 4. containers: 2px ink rule, solid fill, no soft shadow ---------- */
+.vzn-panel, .vzn-panel-strong, .veixon-glass, .veixon-lift, .veixon-tilt,
+[style*="--card-bg"], [class*="bg-card"], .vzn-skeleton-card {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--rule) !important;
+  box-shadow: none !important;
+}
+.vzn-panel-strong { border-color: var(--purple) !important; box-shadow: var(--hard-shadow) !important; }
+
+/* hover: no float + glow, a hard offset shadow instead */
+.veixon-lift, .veixon-tilt, .vzn-panel, .vzn-panel-strong {
+  transform: none !important;
+  transition: box-shadow .14s ease, translate .14s ease, border-color .14s ease !important;
+}
+.veixon-lift:hover, .veixon-tilt:hover, .vzn-panel:hover {
+  translate: -2px -2px;
+  border-color: var(--rule) !important;
+  box-shadow: var(--hard-shadow) !important;
+}
+
+/* thin dividers stay quiet */
+hr, [class*="divide-"] > * + * { border-color: var(--rule-soft) !important; }
+
+/* ---------- 5. buttons: solid blocks with a tactile press ---------- */
+.vzn-button-primary, button[type="submit"], button.bg-purple, a.bg-purple, button[class*="bg-primary"], a[class*="bg-primary"] {
+  background: var(--purple) !important;
+  color: #fff !important;
+  border: 2px solid var(--rule) !important;
+  box-shadow: var(--hard-shadow) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  transition: translate .1s ease, box-shadow .1s ease !important;
+}
+.vzn-button-primary:hover, button[type="submit"]:hover {
+  translate: -1px -1px; box-shadow: 5px 5px 0 0 var(--rule) !important;
+}
+.vzn-button-primary:active, button[type="submit"]:active, .veixon-press:active {
+  translate: 3px 3px; box-shadow: 1px 1px 0 0 var(--rule) !important; transform: none !important;
+}
+.vzn-button-primary:disabled, button[type="submit"]:disabled { opacity: .45; box-shadow: none !important; translate: 0 0; }
+
+.vzn-button-ghost, .vzn-icon-button {
+  background: transparent !important;
+  border: 2px solid var(--rule) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.vzn-button-ghost:hover, .vzn-icon-button:hover { background: var(--text-primary) !important; color: var(--bg-primary) !important; }
+
+/* status pills become square stamps */
+.vzn-status-pill { border: 1.5px solid var(--rule) !important; background: transparent !important; color: var(--text-primary) !important; font-weight: 700; }
+
+/* ---------- 6. inputs: ruled fields ---------- */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, select, .vzn-input {
+  background: var(--bg-primary) !important;
+  border: 2px solid var(--rule-soft) !important;
+  box-shadow: none !important;
+  font-family: var(--font-inter);
+}
+input:focus, textarea:focus, select:focus, .vzn-input:focus {
+  border-color: var(--purple) !important;
+  box-shadow: 3px 3px 0 0 var(--purple) !important;
+  outline: none !important;
+}
+
+/* ---------- 7. app chrome: header + sidebar as ruled bars ---------- */
+.vzn-shell-header {
+  background: var(--bg-primary) !important;
+  border-bottom: 2px solid var(--rule) !important;
+  box-shadow: none !important;
+}
+.vzn-header-accent { background: var(--red) !important; box-shadow: none !important; width: 10px !important; }
+aside, nav[aria-label] { border-color: var(--rule) !important; }
+aside { border-right-width: 2px !important; background: var(--bg-primary) !important; }
+
+/* progress bars: flat */
+[role="progressbar"], [class*="h-1"][class*="bg-"], [class*="h-1.5"][class*="bg-"], [class*="h-2"][class*="bg-"] { box-shadow: none !important; }
+
+/* gradient text is not this style: solid accent instead */
+.bg-clip-text, [class*="bg-clip-text"] { background: none !important; -webkit-text-fill-color: currentColor !important; color: var(--purple-light) !important; }
+
+/* entrance: a short crisp slide, no blur */
+@keyframes vzn-panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* scrollbars to match */
+* { scrollbar-color: var(--rule-soft) transparent; scrollbar-width: thin; }

@@ -1,58 +1,22 @@
 'use client'
 
-import CosmicBackdrop from './CosmicBackdrop'
-
-// "Sun Mode" backdrop — deep space base, faint cosmic grid,
-// subtle aurora glows, and the full 3D solar system WebGL canvas.
-// Shared by every inner app page via AppShell.
+// Editorial backdrop shared by every inner page via AppShell:
+// a flat VEIXON-dark sheet with a faint drafting grid (no WebGL, no glow).
 export default function AmbientBackdrop() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {/* Deep space base */}
       <div className="absolute inset-0" style={{ background: 'var(--bg-primary)' }} />
-
-      {/* Full 3D solar system */}
-      <CosmicBackdrop />
-
-
-
-      {/* Warm amber glow (sun halo feel) — top center */}
       <div
-        className="absolute"
+        className="absolute inset-0"
         style={{
-          left: '30%', top: '-20%',
-          width: '40vw', height: '40vw',
-          background: 'radial-gradient(circle, rgba(255,140,30,0.12), transparent 70%)',
-          filter: 'blur(80px)',
+          backgroundImage:
+            'linear-gradient(to right, color-mix(in srgb, var(--text-primary) 5%, transparent) 1px, transparent 1px),' +
+            'linear-gradient(to bottom, color-mix(in srgb, var(--text-primary) 5%, transparent) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+          maskImage: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,.55) 60%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,.55) 60%, transparent 100%)',
         }}
       />
-
-      {/* Purple aurora — bottom right */}
-      <div
-        className="absolute"
-        style={{
-          right: '-10%', bottom: '-15%',
-          width: '50vw', height: '50vh',
-          background: 'radial-gradient(circle, color-mix(in srgb, var(--purple) 30%, transparent), transparent 70%)',
-          filter: 'blur(90px)',
-        }}
-      />
-
-      {/* Teal aurora — left */}
-      <div
-        className="absolute"
-        style={{
-          left: '-12%', bottom: '20%',
-          width: '35vw', height: '35vh',
-          background: 'radial-gradient(circle, color-mix(in srgb, var(--teal) 20%, transparent), transparent 70%)',
-          filter: 'blur(70px)',
-        }}
-      />
-
-      {/* Readability scrim so text stays crisp over the WebGL canvas */}
-      <div className="absolute inset-0 transition-colors duration-500" style={{ background: 'var(--scrim-bg, color-mix(in srgb, var(--bg-primary) 38%, transparent))' }} />
-      {/* Edge vignette */}
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(130% 100% at 50% 0%, transparent 30%, color-mix(in srgb, var(--bg-primary) 75%, transparent) 100%)' }} />
     </div>
   )
 }
