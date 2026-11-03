@@ -76,15 +76,10 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
       >
         {/* brand lockup */}
         <Link href="/dashboard" onClick={onClose} className="flex items-center gap-3 px-5 py-5">
-          <span
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-[11px] text-sm font-black text-white"
-            style={{ background: 'linear-gradient(135deg, var(--purple), color-mix(in srgb, var(--teal) 70%, var(--purple)))', boxShadow: '0 6px 22px -8px var(--purple)' }}
-          >
-            V
-          </span>
           <span className="leading-tight">
-            <span className="block text-sm font-extrabold tracking-[0.12em]">VEIXON</span>
-            <span className="block font-mono text-[9px] uppercase tracking-[0.24em]" style={{ color: 'var(--text-dim)' }}>Co-Founder OS</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/veixon-logo.png" alt="VEIXON.Tech" className="vx-logo block h-[26px] w-auto" />
+            <span className="mt-1.5 block font-mono text-[9px] uppercase tracking-[0.24em]" style={{ color: 'var(--text-dim)' }}>Co-Founder OS</span>
           </span>
         </Link>
 
