@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>VEIXON — Your AI Co-Founder from Day One</title>
 <style>
+  @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+  @font-face{font-family:"Inter";font-weight:800;font-display:swap;src:url(/fonts/inter-latin-800-normal.woff2) format("woff2")}
   :root{ --bg:#000; --txt:#fff; --muted:rgba(255,255,255,.58); --border:rgba(255,255,255,.13); --card:rgba(255,255,255,.045); --accent:#fff; --inv:#000; --red:#ff6b6b; }
   body.light{ --bg:#f8fafc; --txt:#0f172a; --muted:#475569; --border:rgba(15,23,42,0.08); --card:rgba(255,255,255,0.75); --accent:#6366f1; --inv:#fff; --red:#ef4444; }
   body.light #vignette{background:radial-gradient(130% 90% at 50% 30%,transparent 60%,rgba(241,245,249,0.5) 100%)}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .6s,color .6s}
-  @media(pointer:fine){body{cursor:none}}
+  
   ::selection{background:var(--accent);color:var(--inv)}
   /* fixed layers */
   #bg{position:fixed;inset:0;z-index:0}
@@ -40,13 +43,13 @@
   .brand{font-weight:800;letter-spacing:.2em;font-size:15px}
   nav .links{display:flex;gap:30px;align-items:center}
   nav a{color:var(--muted);text-decoration:none;font-size:13.5px;transition:.2s}nav a:hover{color:var(--txt)}
-  .btn{position:relative;display:inline-flex;align-items:center;gap:8px;justify-content:center;border-radius:999px;padding:13px 26px;font-weight:700;font-size:15px;text-decoration:none;cursor:none;transition:transform .15s,opacity .2s}
+  .btn{position:relative;display:inline-flex;align-items:center;gap:8px;justify-content:center;border-radius:999px;padding:13px 26px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;transition:transform .15s,opacity .2s}
   .btn:active{transform:scale(.96)}
   .btn.primary{background:var(--accent);color:var(--inv)}.btn.primary:hover{opacity:.9}
   .btn.ghost{background:var(--card);border:1px solid var(--border);color:var(--txt);backdrop-filter:blur(8px)}
   .btn.nav{padding:9px 18px;font-size:13.5px}
   .magnetic{display:inline-block;will-change:transform}
-  .toggle{position:fixed;bottom:22px;right:22px;z-index:60;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border);background:var(--card);color:var(--txt);backdrop-filter:blur(10px);cursor:none;font-size:20px;transition:transform .2s}
+  .toggle{position:fixed;bottom:22px;right:22px;z-index:60;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border);background:var(--card);color:var(--txt);backdrop-filter:blur(10px);cursor:pointer;font-size:20px;transition:transform .2s}
   .toggle:hover{transform:scale(1.12) rotate(12deg)}
   #smooth{position:fixed;top:0;left:0;width:100%;will-change:transform}
   section{position:relative;z-index:10}
@@ -64,7 +67,7 @@
   .sub{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:560px;margin:30px auto 0;line-height:1.6}
   /* idea console */
   .console{display:flex;gap:10px;max-width:660px;margin:38px auto 0;flex-wrap:wrap;border:1px solid var(--border);background:var(--card);backdrop-filter:blur(16px);border-radius:18px;padding:10px;box-shadow:0 30px 80px -40px rgba(0,0,0,.6)}
-  .console input{flex:1;min-width:200px;background:transparent;border:none;outline:none;color:var(--txt);font-size:15px;padding:9px 13px;cursor:none}
+  .console input{flex:1;min-width:200px;background:transparent;border:none;outline:none;color:var(--txt);font-size:15px;padding:9px 13px;cursor:text}
   .console input::placeholder{color:var(--muted)}
   .micro{margin-top:14px;font-size:12.5px;color:var(--muted)}
   #teaser{max-width:660px;margin:18px auto 0;text-align:left}
@@ -171,7 +174,7 @@
   .reveal.in{opacity:1;transform:none;filter:none}
   .pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
   .pill{border:1px solid var(--border);background:var(--card);border-radius:999px;padding:9px 20px;color:var(--muted);font-size:14px}
-  .manifesto h2{max-width:1000px;margin:0 auto;font-size:clamp(32px,5.8vw,62px);line-height:1.1}
+  .manifesto h2{max-width:1000px;margin:0 auto;font-size:clamp(30px,4.6vw,52px);line-height:1.1}
   .manifesto .hl{color:var(--txt)}.manifesto .dm{color:color-mix(in srgb,var(--txt) 48%,transparent)}
   .avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 26px;background:radial-gradient(circle at 32% 28%,var(--txt),var(--muted));opacity:.92}
   .scorecard{border:1px solid var(--border);background:var(--card);backdrop-filter:blur(16px);border-radius:22px;padding:30px}
@@ -193,10 +196,11 @@
 
   /* ---- full-screen title ---- */
   .hero{min-height:100svh;height:100svh;padding:84px clamp(14px,2.2vw,32px) 20px;display:flex;flex-direction:column;justify-content:stretch;align-items:stretch;text-align:left}
-  h1.fitTitle{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.6vh;max-width:none;width:100%;margin:0;line-height:.84;letter-spacing:-.05em;text-transform:uppercase;font-weight:900}
-  h1.fitTitle .fl{display:block;width:max-content;max-width:none;white-space:nowrap;font-size:120px}
-  h1.fitTitle .fl:nth-child(even){margin-left:0}
-  h1.fitTitle .fl.g{background:linear-gradient(100deg,#fff 10%,#b9b3ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1.fitTitle{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;max-width:none;width:100%;margin:0;gap:.12em}
+  h1.fitTitle .fl{display:block;white-space:nowrap}
+  h1.fitTitle .l1{font-family:'Inter',-apple-system,sans-serif;font-weight:800;letter-spacing:-.045em;line-height:1;font-size:min(8.2vw,118px)}
+  h1.fitTitle .l2{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;line-height:1;font-size:min(9.6vw,138px);background:linear-gradient(100deg,#fff 15%,#b9b3ff 85%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .08em .06em}
+  h1.fitTitle .l2 .char{background:inherit;-webkit-background-clip:text;background-clip:text}
   .scrollcue{align-self:center;margin-top:10px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;text-decoration:none}
   /* ---- below the fold: everything in containers ---- */
   .sec{padding:28px 0}
@@ -239,7 +243,7 @@
   .price.hot{border-color:color-mix(in srgb,#a5b4fc 60%,transparent);box-shadow:0 30px 80px -40px rgba(109,93,246,.7)}
   .faq{max-width:760px;margin:40px auto 0}
   .faq details{border-top:1px solid var(--border);padding:20px 4px}.faq details:last-child{border-bottom:1px solid var(--border)}
-  .faq summary{cursor:none;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+  .faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
   .faq summary::after{content:'+';color:var(--muted);font-weight:400;font-size:22px;line-height:1}
   .faq details[open] summary::after{content:'–'}
   .faq summary::-webkit-details-marker{display:none}
@@ -258,7 +262,7 @@
 <div id="vignette"></div>
 
 <div id="grain"></div>
-<div id="ring"></div><div id="dot"></div>
+
 
 <div id="loader">
   <div class="lbrand" id="lbrand"></div>
@@ -325,7 +329,8 @@
 </div></div></section>
 
 <section class="sec boxed manifesto"><div class="wrap center"><div class="box">
-  <h2 class="reveal"><span class="hl">Most startups die of comfort.</span> <span class="dm">VEIXON is the co-founder that refuses to let you lie to yourself: brutally honest, always watching, impossible to impress with vanity.</span></h2>
+  <div class="reveal"><h2>Most startups die of comfort.</h2>
+  <p class="lead" style="margin:18px auto 0">VEIXON is the co-founder that refuses to let you lie to yourself: brutally honest, always watching, impossible to impress with vanity.</p></div>
 </div></div></section>
 
 <section class="sec boxed" id="features"><div class="wrap"><div class="box">
@@ -428,7 +433,7 @@
 
 /* ---------- custom cursor ---------- */
 (function(){
-  if(!matchMedia('(pointer:fine)').matches)return; // no cursor ring loop on touch devices
+  return; // custom cursor removed: normal pointer
   const ring=document.getElementById('ring'),dot=document.getElementById('dot');
   let rx=0,ry=0,mx=0,my=0;
   addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
@@ -456,23 +461,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 /* ---------- char reveal ---------- */
 function split(el,text,base){[...text].forEach((ch,i)=>{const s=document.createElement('span');s.className='char';s.textContent=ch===' '?'\u00A0':ch;el.appendChild(s);setTimeout(()=>{s.style.transition='opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)';s.style.opacity=1;s.style.transform='none';},base+i*32);});}
-const LAYOUTS=[['Your AI Co-Founder','from Day One.'],['Your AI','Co-Founder','from Day One.'],['Your AI','Co-Founder','from','Day One.']];
-let titleAnimated=false,curKey='';
-function fillLine(sp,t,animate,base){if(animate){split(sp,t,base);return;}
-  [...t].forEach(ch=>{const c=document.createElement('span');c.className='char';c.style.opacity=1;c.style.transform='none';c.textContent=ch===' '?' ':ch;sp.appendChild(c);});}
-function measure(lines){const h1=document.querySelector('h1.fitTitle');const W=h1.clientWidth,H=h1.clientHeight;
-  const m=h1.cloneNode(false);m.removeAttribute('aria-label');m.style.cssText='position:absolute;visibility:hidden;left:0;top:0;width:'+W+'px;height:auto;flex:none;overflow:visible';
-  h1.parentNode.appendChild(m);
-  const els=lines.map((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');fillLine(sp,t,false);sp.style.fontSize='100px';m.appendChild(sp);return sp;});
-  const sizes=els.map(l=>96*W/l.scrollWidth);els.forEach((l,i)=>l.style.fontSize=sizes[i]+'px');
-  const total=els.reduce((a,l)=>a+l.offsetHeight,0);m.remove();
-  return {lines,sizes,k:Math.min(1,H*0.94/total),fill:Math.min(total,H)/H};}
-function fitTitle(){const h1=document.querySelector('h1.fitTitle');if(!h1||!h1.clientHeight)return;
-  const opts=LAYOUTS.map(measure);opts.forEach(o=>o.score=o.k*o.fill);opts.sort((x,y)=>y.score-x.score);
-  const best=opts[0],key=best.lines.join('|');
-  if(key!==curKey){h1.innerHTML='';best.lines.forEach((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');h1.appendChild(sp);fillLine(sp,t,!titleAnimated,2500+i*260);});curKey=key;titleAnimated=true;}
-  [...h1.children].forEach((l,i)=>l.style.fontSize=(best.sizes[i]*best.k)+'px');
-  if(typeof setHeight==='function')setHeight();}
+function fitTitle(){const h1=document.querySelector('h1.fitTitle');if(!h1||h1.dataset.done)return;h1.dataset.done=1;
+  [['l1','Your AI Co-Founder'],['l2','from Day 1.']].forEach(([c,t],i)=>{const sp=document.createElement('span');sp.className='fl '+c;h1.appendChild(sp);split(sp,t,2500+i*600);});}
 fitTitle();addEventListener('load',fitTitle);setTimeout(()=>{document.querySelector('.hero').classList.add('in');},2500);let rT;addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(fitTitle,120);});
 
 /* ---------- marquee ---------- */

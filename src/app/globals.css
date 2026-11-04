@@ -64,14 +64,9 @@ select {
 }
 
 button {
-  cursor: inherit;
+  cursor: pointer;
 }
 
-@media (pointer: fine) {
-  * {
-    cursor: none;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
