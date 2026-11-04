@@ -193,9 +193,10 @@
 
   /* ---- full-screen title ---- */
   .hero{min-height:100svh;height:100svh;padding:84px clamp(14px,2.2vw,32px) 20px;display:flex;flex-direction:column;justify-content:stretch;align-items:stretch;text-align:left}
-  h1.fitTitle{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;max-width:none;width:100%;margin:0;line-height:.84;letter-spacing:-.05em;text-transform:uppercase;font-weight:900}
+  h1.fitTitle{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.6vh;max-width:none;width:100%;margin:0;line-height:.84;letter-spacing:-.05em;text-transform:uppercase;font-weight:900}
   h1.fitTitle .fl{display:block;width:max-content;max-width:none;white-space:nowrap;font-size:120px}
-  h1.fitTitle .fl:nth-child(even){margin-left:auto}
+  h1.fitTitle .fl:nth-child(even){margin-left:0}
+  h1.fitTitle .fl.g{background:linear-gradient(100deg,#fff 10%,#b9b3ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
   .scrollcue{align-self:center;margin-top:10px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;text-decoration:none}
   /* ---- below the fold: everything in containers ---- */
   .sec{padding:28px 0}
@@ -207,6 +208,49 @@
   @media(max-width:900px){nav .links a:not(.btn){display:none}}
   .manifesto .box{padding:clamp(40px,7vw,90px) clamp(24px,5vw,64px)}
   body.light .vx-logo{filter:invert(1)}
+
+  /* ---- reworked landing elements ---- */
+  .soft{background:linear-gradient(100deg,#fff 10%,#b9b3ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .try{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+  .try h2{margin-top:18px;font-size:clamp(28px,3.6vw,44px)}
+  .try .lead{font-size:16px}
+  .try .console{margin:0;max-width:none}
+  .try .badge{margin-bottom:0}
+  .try #teaser{max-width:none}
+  @media(max-width:900px){.try{grid-template-columns:1fr;gap:28px}}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:560px){.g3{grid-template-columns:1fr}}
+  .ftag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);background:color-mix(in srgb,var(--c) 10%,transparent);padding:5px 10px;border-radius:999px;margin-bottom:16px}
+  .stat .l{max-width:180px;line-height:1.45}
+  .adv{padding:26px}
+  .adv .q{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;padding-bottom:18px;border-bottom:1px solid var(--border)}
+  .adv .who{flex:none;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--border);border-radius:999px;padding:4px 10px;color:var(--muted)}
+  .adv .verdict{padding-top:18px}
+  .adv .vt{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;margin-top:10px}
+  .adv .verdict>p{color:var(--muted);font-size:14px;line-height:1.6;margin-top:8px}
+  .adv .conf{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+  .adv .bar i{width:63%}
+  .why{list-style:none;margin-top:18px}.why li{font-size:13.5px;color:var(--muted);padding:10px 0;border-top:1px solid var(--border);line-height:1.5}.why b{color:var(--txt);font-weight:600}
+  #advisor .pills{margin-top:26px}#advisor .pill{font-size:13px;padding:7px 14px}
+  .price{display:flex;flex-direction:column}
+  .price .pv{font-size:44px;font-weight:800;letter-spacing:-.03em;margin-top:12px}.price .pv span{font-size:15px;color:var(--muted);font-weight:500}
+  .price ul{list-style:none;margin:20px 0 26px;flex:1}.price li{font-size:14px;color:var(--muted);padding:9px 0;border-top:1px solid var(--border)}
+  .price .btn{width:100%}
+  .price.hot{border-color:color-mix(in srgb,#a5b4fc 60%,transparent);box-shadow:0 30px 80px -40px rgba(109,93,246,.7)}
+  .faq{max-width:760px;margin:40px auto 0}
+  .faq details{border-top:1px solid var(--border);padding:20px 4px}.faq details:last-child{border-bottom:1px solid var(--border)}
+  .faq summary{cursor:none;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+  .faq summary::after{content:'+';color:var(--muted);font-weight:400;font-size:22px;line-height:1}
+  .faq details[open] summary::after{content:'–'}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq p{color:var(--muted);font-size:15px;line-height:1.65;margin-top:12px}
+  footer{text-align:left;padding:44px 0}
+  .foot{display:grid;grid-template-columns:1fr auto;gap:22px 40px;align-items:start;max-width:1180px}
+  .foot p{margin-top:12px;font-size:13px}
+  .fl2{display:flex;gap:26px;flex-wrap:wrap}.fl2 a{color:var(--muted);text-decoration:none;font-size:13.5px}.fl2 a:hover{color:var(--txt)}
+  .fcopy{grid-column:1/-1;border-top:1px solid var(--border);padding-top:18px;font-size:12.5px}
+  @media(max-width:700px){.foot{grid-template-columns:1fr}}
+  .reveal{filter:blur(4px)}
 </style>
 </head>
 <body>
@@ -225,33 +269,37 @@
 <button class="toggle" id="toggle" title="Toggle theme">☀️</button>
 
 <nav><div class="wrap">
-  <a href="#top" class="brand"><img src="/veixon-logo.png" alt="VEIXON.Tech" class="vx-logo" style="height:28px;width:auto;display:block"></a>
+  <a href="#top" class="brand"><img src="/veixon-logo.png" alt="VEIXON.Tech" class="vx-logo" style="height:20px;width:auto;display:block"></a>
   <div class="links">
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
-    <a href="#proof">Why trust it</a>
+    <a href="#advisor">Advisor</a>
+    <a href="#pricing">Pricing</a>
     <span class="magnetic"><a class="btn primary nav" href="/auth" target="_top">Log in</a></span>
   </div>
 </div></nav>
 
 <div id="smooth">
 <section class="hero" id="top">
-  <h1 class="fitTitle" aria-label="Your AI Co-Founder from Day One.">
-    
-  </h1>
+  <h1 class="fitTitle" aria-label="Your AI Co-Founder from Day One."></h1>
   <a class="scrollcue" href="#start">Scroll ↓</a>
 </section>
 
 <section class="sec boxed" id="start"><div class="wrap">
-  <div class="box center">
-    <div class="badge"><span class="dot"></span> Powered by VEIXON.Tech</div>
-    <p class="sub" style="margin-top:0">Brutal scorecard. 90-day war plan. Devil&rsquo;s advocate. Decision simulator. Weekly accountability.</p>
-    <div class="console">
-      <input id="ideaIn" placeholder="Describe your startup in one line…"/>
-      <span class="magnetic"><button class="btn primary" id="analyzeBtn">Get my brutal analysis →</button></span>
+  <div class="box try">
+    <div class="try-l">
+      <div class="badge"><span class="dot"></span> Free · no signup</div>
+      <h2>Paste your idea.<br><span class="soft">Get the brutal truth.</span></h2>
+      <p class="lead">A six-dimension scorecard, your failure probability and the one risk you're avoiding, in seconds.</p>
     </div>
-    <p class="micro" id="consoleHint">Instant, free, no signup. VZN doesn&rsquo;t sugarcoat.</p>
-    <div id="teaser"></div>
+    <div class="try-r">
+      <div class="console">
+        <input id="ideaIn" placeholder="Describe your startup in one line…"/>
+        <span class="magnetic"><button class="btn primary" id="analyzeBtn">Analyse →</button></span>
+      </div>
+      <p class="micro" id="consoleHint">Try: &ldquo;UPI app that helps kirana stores give credit to regulars&rdquo;</p>
+      <div id="teaser"></div>
+    </div>
   </div>
 </div></section>
 
@@ -259,34 +307,61 @@
 
 <section class="sec boxed"><div class="wrap"><div class="box">
   <div class="stats">
-    <div class="stat reveal"><div class="n" data-count="90">0</div><div class="l">Days of execution</div></div>
-    <div class="stat reveal"><div class="n" data-count="13">0</div><div class="l">Weekly missions</div></div>
-    <div class="stat reveal"><div class="n" data-count="6">0</div><div class="l">Scorecard dimensions</div></div>
-    <div class="stat reveal"><div class="n" data-count="20">0</div><div class="l">VCs in the vault</div></div>
+    <div class="stat reveal"><div class="n" data-count="90">0</div><div class="l">Day war plan, built for your idea</div></div>
+    <div class="stat reveal"><div class="n" data-count="39">0</div><div class="l">Academy lessons, from idea to fundraise</div></div>
+    <div class="stat reveal"><div class="n" data-count="72">0</div><div class="l">Decision rules behind every answer</div></div>
+    <div class="stat reveal"><div class="n" data-count="12">0</div><div class="l">Founder decisions the Advisor makes with you</div></div>
   </div>
 </div></div></section>
 
 <section class="sec boxed" id="how"><div class="wrap"><div class="box">
-  <div class="center reveal"><div class="eyebrow">The flow</div><h2 style="margin-top:14px">From idea to execution in 4 moves</h2><p class="lead" style="margin-left:auto;margin-right:auto">VEIXON guides you from raw idea to funded startup — no fluff.</p></div>
+  <div class="center reveal"><div class="eyebrow">The flow</div><h2 style="margin-top:14px">From idea to execution in 4 moves</h2><p class="lead" style="margin-left:auto;margin-right:auto">VEIXON takes you from a raw idea to a tested plan, with no fluff.</p></div>
   <div class="grid g4">
     <div class="card reveal"><div class="spot"></div><div class="num">01</div><h3>Share your idea</h3><p>Three precise questions. No pitch deck.</p></div>
-    <div class="card reveal"><div class="spot"></div><div class="num">02</div><h3>VEIXON deep-analyses it</h3><p>A six-dimension scorecard plus the failure modes you are avoiding.</p></div>
-    <div class="card reveal"><div class="spot"></div><div class="num">03</div><h3>Get your 90-day war plan</h3><p>Thirteen weekly missions, each with daily execution tasks.</p></div>
-    <div class="card reveal"><div class="spot"></div><div class="num">04</div><h3>Ship and stay accountable</h3><p>Weekly check-ins, pivot radar, and execution pressure.</p></div>
+    <div class="card reveal"><div class="spot"></div><div class="num">02</div><h3>Get the scorecard</h3><p>Six dimensions plus the failure modes you are avoiding.</p></div>
+    <div class="card reveal"><div class="spot"></div><div class="num">03</div><h3>Run the war plan</h3><p>Thirteen weekly missions, each with daily tasks.</p></div>
+    <div class="card reveal"><div class="spot"></div><div class="num">04</div><h3>Decide and ship</h3><p>Ask the Advisor before big calls. Check in every week.</p></div>
   </div>
 </div></div></section>
 
 <section class="sec boxed manifesto"><div class="wrap center"><div class="box">
-  <h2 class="reveal"><span class="hl">Most startups die of comfort.</span> <span class="dm">VEIXON is the co-founder that refuses to let you lie to yourself — brutally honest, always watching, impossible to impress with vanity.</span></h2>
+  <h2 class="reveal"><span class="hl">Most startups die of comfort.</span> <span class="dm">VEIXON is the co-founder that refuses to let you lie to yourself: brutally honest, always watching, impossible to impress with vanity.</span></h2>
 </div></div></section>
 
 <section class="sec boxed" id="features"><div class="wrap"><div class="box">
-  <div class="center reveal"><h2>Built for founders who hate fluff.</h2><p class="lead" style="margin-left:auto;margin-right:auto">Everything your co-founder should be.</p></div>
-  <div class="grid g2">
-    <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(250,204,21,0.14), rgba(250,204,21,0.02)); --ic-border: rgba(250,204,21,0.3); --ic-glow: rgba(250,204,21,0.22);">💡</span><h3>AI Ideation Engine</h3><p>6-dimension scorecard, devil&rsquo;s advocate, failure probability, Founder DNA profile.</p></div>
-    <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(16,185,129,0.02)); --ic-border: rgba(16,185,129,0.3); --ic-glow: rgba(16,185,129,0.22);">📈</span><h3>Decision Simulator</h3><p>3 scenarios: best/worst/most likely with 30, 90, 180-day projections.</p></div>
-    <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(99,102,241,0.02)); --ic-border: rgba(99,102,241,0.3); --ic-glow: rgba(99,102,241,0.22);">📡</span><h3>Pivot Radar</h3><p>VEIXON watches weekly patterns and alerts you before you realise you are failing.</p></div>
-    <div class="card reveal"><div class="spot"></div><span class="ic" style="--ic-bg: linear-gradient(135deg, rgba(239,68,68,0.14), rgba(239,68,68,0.02)); --ic-border: rgba(239,68,68,0.3); --ic-glow: rgba(239,68,68,0.22);">🎯</span><h3>Accountability Score</h3><p>Your follow-through rate. Tracked every week. The number VCs will ask to see.</p></div>
+  <div class="center reveal"><div class="eyebrow">Inside the platform</div><h2 style="margin-top:14px">Built for founders who hate fluff.</h2><p class="lead" style="margin-left:auto;margin-right:auto">Everything a co-founder should be, in one place.</p></div>
+  <div class="grid g3">
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#facc15">Analyse</div><h3>Idea scorecard</h3><p>Market, moat, timing, founder fit, monetisation and execution risk, plus a devil&rsquo;s advocate.</p></div>
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#2dd4bf">Plan</div><h3>90-day war plan</h3><p>Thirteen weekly missions you either complete or admit you dodged.</p></div>
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#a5b4fc">Decide</div><h3>Decision Advisor</h3><p>Hire, raise, pivot, price: a clear verdict on your real numbers, with reasons.</p></div>
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#f472b6">Learn</div><h3>VEIXON Academy</h3><p>13 modules and 39 lessons. Every rule the Advisor uses is a lesson you can read.</p></div>
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#fb923c">Watch</div><h3>Pivot radar</h3><p>Weekly patterns flag trouble before you realise you&rsquo;re failing.</p></div>
+    <div class="card feat reveal"><div class="spot"></div><div class="ftag" style="--c:#ef4444">Prove</div><h3>Accountability score</h3><p>Your follow-through rate, tracked weekly. The number investors will ask to see.</p></div>
+  </div>
+</div></div></section>
+
+<section class="sec boxed" id="advisor"><div class="wrap"><div class="box">
+  <div class="two" style="margin-top:0">
+    <div class="reveal">
+      <div class="eyebrow">Decision Advisor</div>
+      <h2 style="margin-top:14px">Ask before you<br>make the call.</h2>
+      <p class="lead">The model explains, but the rules decide. Same numbers, same answer, and every reason links to the lesson it came from.</p>
+      <div class="pills" style="justify-content:flex-start"><span class="pill">Build or validate</span><span class="pill">Hire</span><span class="pill">Fundraise</span><span class="pill">Pricing</span><span class="pill">Pivot</span></div>
+    </div>
+    <div class="card adv reveal"><div class="spot"></div>
+      <div class="q"><span class="who">You</span>We did 4 customer interviews. Should we build the full app now?</div>
+      <div class="verdict">
+        <div class="eyebrow">Build now or validate first · Stage: idea</div>
+        <div class="vt">Do customer discovery first</div>
+        <p>You don&rsquo;t know enough about the problem yet. Building now risks making something nobody needs.</p>
+        <div class="conf"><span>Confidence · medium</span><span>63%</span></div>
+        <div class="bar"><i style="width:63%;--bar-color:linear-gradient(90deg,#a5b4fc,#6d5df6);--bar-glow:#6d5df6"></i></div>
+        <ul class="why">
+          <li>Fewer than 10 problem interviews <b>→ Customer interviews that tell the truth</b></li>
+          <li>No pre-orders or paid pilots yet <b>→ Lean Startup: build-measure-learn</b></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div></div></section>
 
@@ -301,21 +376,44 @@
     </div>
     <div class="notes" style="display: flex; flex-direction: column; gap: 20px;">
       <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">Failure mode</div><h3>Distribution risk is not a side quest.</h3><p>The first 30 days are about proving you can reach buyers without burning founder energy on fake momentum.</p></div>
-      <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">Survival edge</div><h3>Your first wedge must feel narrow.</h3><p>If everyone is your customer, VEIXON will treat that as avoidance, not ambition.</p></div>
-      <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">War plan</div><h3>Every mission is falsifiable.</h3><p>Tasks are written so you can either complete them or admit you dodged them.</p></div>
+      <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">Survival edge</div><h3>Your first wedge must feel narrow.</h3><p>If everyone is your customer, VEIXON treats that as avoidance, not ambition.</p></div>
+      <div class="note reveal card" style="margin-bottom:0;"><div class="spot"></div><div class="eyebrow">War plan</div><h3>Every mission is falsifiable.</h3><p>Tasks are written so you either complete them or admit you dodged them.</p></div>
     </div>
   </div>
 </div></div></section>
 
+<section class="sec boxed" id="pricing"><div class="wrap"><div class="box">
+  <div class="center reveal"><div class="eyebrow">Pricing</div><h2 style="margin-top:14px">Start free. Pay when VZN gives you a reason to.</h2></div>
+  <div class="grid g3">
+    <div class="card price reveal"><div class="spot"></div><div class="eyebrow">Free</div><div class="pv">Rs 0</div><ul><li>1 idea analysis</li><li>3 decisions</li><li>30-day access</li><li>Basic war plan</li></ul><a class="btn ghost" href="/auth" target="_top">Start free</a></div>
+    <div class="card price hot reveal"><div class="spot"></div><div class="eyebrow">Founders · most popular</div><div class="pv">Rs 999<span>/mo</span></div><ul><li>Unlimited decisions</li><li>Full 90-day war plan</li><li>Pivot radar</li><li>VC vault</li></ul><a class="btn primary" href="/auth" target="_top">Get Founders</a></div>
+    <div class="card price reveal"><div class="spot"></div><div class="eyebrow">Team</div><div class="pv">Rs 2,499<span>/mo</span></div><ul><li>Up to 5 co-founders</li><li>Investor report</li><li>Vault early access</li><li>Autopsy mode</li></ul><a class="btn ghost" href="/auth" target="_top">Build with team</a></div>
+  </div>
+</div></div></section>
+
+<section class="sec boxed" id="faq"><div class="wrap"><div class="box">
+  <h2 class="center reveal">Questions founders ask.</h2>
+  <div class="faq reveal">
+    <details><summary>Is this just ChatGPT with a prompt?</summary><p>No. A rule-based engine makes each decision from your numbers and 72 rules from the VEIXON Academy. The AI only explains the verdict and can&rsquo;t change it.</p></details>
+    <details><summary>Do I need a pitch deck or a team to start?</summary><p>No. You need one line about your idea. VEIXON works from day zero.</p></details>
+    <details><summary>Is it built for Indian startups?</summary><p>Yes. DPIIT recognition, the Startup India Seed Fund, 80-IAC tax benefits and GST thresholds are built into plans and decisions.</p></details>
+    <details><summary>What happens to my idea?</summary><p>It stays in your account. It is used to build your plan and is not shown to other founders.</p></details>
+  </div>
+</div></div></section>
+
 <section class="cta boxed"><div class="wrap center"><div class="box">
-  <div class="reveal"><div class="avatar"></div>
-    <h2>Stop guessing.<br><span class="g" style="background:linear-gradient(110deg,var(--txt),var(--muted));-webkit-background-clip:text;background-clip:text;color:transparent">Start shipping.</span></h2>
-    <div class="pills" style="margin-top:36px"><span class="magnetic"><a class="btn primary" href="#top" style="padding:16px 34px;font-size:17px">Analyse my idea — free</a></span></div>
+  <div class="reveal"><img src="/veixon-logo.png" alt="VEIXON.Tech" class="vx-logo" style="height:34px;margin:0 auto 30px;display:block;opacity:.9">
+    <h2>Stop guessing.<br><span class="soft">Start shipping.</span></h2>
+    <div class="pills" style="margin-top:36px"><span class="magnetic"><a class="btn primary" href="#start" style="padding:16px 34px;font-size:17px">Analyse my idea — free</a></span></div>
     <p class="micro">No credit card · 1 free analysis · Built in India</p>
   </div>
 </div></div></section>
 
-<footer>Copyright 2026 VEIXON Co-founders — Decide Smarter. Move Faster.</footer>
+<footer><div class="wrap foot">
+  <div><img src="/veixon-logo.png" alt="VEIXON.Tech" class="vx-logo" style="height:18px;display:block"><p>Your AI co-founder from day one.</p></div>
+  <div class="fl2"><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="/auth" target="_top">Log in</a></div>
+  <div class="fcopy">© 2026 Veixon.Tech · Hyderabad, India</div>
+</div></footer>
 </div><!-- /smooth -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -358,7 +456,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 /* ---------- char reveal ---------- */
 function split(el,text,base){[...text].forEach((ch,i)=>{const s=document.createElement('span');s.className='char';s.textContent=ch===' '?'\u00A0':ch;el.appendChild(s);setTimeout(()=>{s.style.transition='opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)';s.style.opacity=1;s.style.transform='none';},base+i*32);});}
-const LAYOUTS=[['Your AI Co-Founder','from Day One.'],['Your AI','Co-Founder','from Day One.'],['Your AI','Co-Founder','from','Day One.'],['Your','AI Co-','Founder','from','Day One.'],['Your','AI','Co-','Founder','from','Day','One.']];
+const LAYOUTS=[['Your AI Co-Founder','from Day One.'],['Your AI','Co-Founder','from Day One.'],['Your AI','Co-Founder','from','Day One.']];
 let titleAnimated=false,curKey='';
 function fillLine(sp,t,animate,base){if(animate){split(sp,t,base);return;}
   [...t].forEach(ch=>{const c=document.createElement('span');c.className='char';c.style.opacity=1;c.style.transform='none';c.textContent=ch===' '?' ':ch;sp.appendChild(c);});}
@@ -368,9 +466,9 @@ function measure(lines){const h1=document.querySelector('h1.fitTitle');const W=h
   const els=lines.map((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');fillLine(sp,t,false);sp.style.fontSize='100px';m.appendChild(sp);return sp;});
   const sizes=els.map(l=>96*W/l.scrollWidth);els.forEach((l,i)=>l.style.fontSize=sizes[i]+'px');
   const total=els.reduce((a,l)=>a+l.offsetHeight,0);m.remove();
-  return {lines,sizes,k:Math.min(1,H/total),fill:Math.min(total,H)/H};}
+  return {lines,sizes,k:Math.min(1,H*0.94/total),fill:Math.min(total,H)/H};}
 function fitTitle(){const h1=document.querySelector('h1.fitTitle');if(!h1||!h1.clientHeight)return;
-  const opts=LAYOUTS.map(measure);opts.sort((x,y)=>(y.k===1)-(x.k===1)||(x.k===1?y.fill-x.fill:y.k-x.k));
+  const opts=LAYOUTS.map(measure);opts.forEach(o=>o.score=o.k*o.fill);opts.sort((x,y)=>y.score-x.score);
   const best=opts[0],key=best.lines.join('|');
   if(key!==curKey){h1.innerHTML='';best.lines.forEach((t,i)=>{const sp=document.createElement('span');sp.className='fl'+(i%2?' g':'');h1.appendChild(sp);fillLine(sp,t,!titleAnimated,2500+i*260);});curKey=key;titleAnimated=true;}
   [...h1.children].forEach((l,i)=>l.style.fontSize=(best.sizes[i]*best.k)+'px');
